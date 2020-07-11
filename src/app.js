@@ -3,8 +3,10 @@ const express = require('express');
 const hbs = require('hbs');
 const geocode = require('../utils/geocode');
 const app = express();
+// for heroku the environment variable to be used else 3000
+const port = process.env.PORT || 3000
+
 const forecast = require('../utils/forecast');
- 
 console.log(__dirname);
 console.log(__filename);
 console.log(path.join(__dirname,'../public'));
@@ -104,8 +106,8 @@ app.get('*',(req,res)=>{
     });
 
 });
-app.listen(2000,()=>{
+app.listen(port,()=>{
 
-    console.log('Server is up!');
+    console.log('Server is up!'+'on '+port);
 
 });

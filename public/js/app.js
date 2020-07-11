@@ -8,7 +8,7 @@ const ploc = document.querySelector('.weather-loc');
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:2000/weather?address=${search.value}`).then((response) => {
+    fetch(`/weather?address=${search.value}`).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 perror.style.display="block";
